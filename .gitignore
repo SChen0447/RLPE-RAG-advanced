@@ -1,0 +1,53 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# 虚拟环境
+.venv/
+venv/
+env/
+ENV/
+
+# 测试与类型检查缓存
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# 环境变量（保留 .env.example）
+.env
+.env.local
+
+# 向量数据库与本地数据（生成物）
+data_base/vector_db/
+*.sqlite3
+*.db
+
+# 模型缓存
+.cache/
+models/
+*.pt
+*.bin
+*.onnx
+
+# IDE / 编辑器
+.idea/
+.vscode/
+*.swp
+
+# 系统文件
+.DS_Store
+Thumbs.db
+
+# 日志
+*.log
+logs/
+
+# Jupyter
+.ipynb_checkpoints/
