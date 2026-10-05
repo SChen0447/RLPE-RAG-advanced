@@ -71,7 +71,7 @@ def build_qa_history_hyde_chain(vectordb: VectorStore):
     return qa_history_chain
 
 
-
+# 历史信息压缩+多查询
 def build_qa_history_multi_query_chain(vectordb: VectorStore):
     retriever = build_raw_retriever(vectordb.get_vectorstore())
     llm = get_llm()

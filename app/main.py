@@ -7,7 +7,7 @@ from contextlib import asynccontextmanager
 from app.rag.chains import build_qa_history_hyde_chain, build_qa_history_multi_query_chain
 from app.rag.vectorstore import VectorStore
 from app.session import SessionStore
-from app.rag.loaders import get_file_paths, load_documents, split_documents
+
 
 
 class AskRequest(BaseModel):

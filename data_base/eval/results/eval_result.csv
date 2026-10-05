@@ -1,0 +1,275 @@
+user_input,retrieved_contexts,response,reference,faithfulness,answer_relevancy,context_precision,context_recall,answer_correctness
+我是一名语言应用开发者，平常用大语言模型API做多语言翻译和文本转换工具，最近想学习提示工程，请文吴恩达老师和OpenAI技术团队的Isa Fulford老师合作授课的《Prompt Engineering for Developer》课程主要讲什么内容？Isa Fulford老师开法过哪些受欢迎的ChatGPT检索插件，又对LLM技术在产品中的应用和OpenAI cookbok有什么共献？,"['第一章 简介\n欢迎来到面向开发者的提示工程部分，本部分内容基于吴恩达老师的《Prompt Engineering for Developer》课程进行编写。《Prompt Engineering for Developer》课程是由吴恩达老师与 OpenAI 技术团队成员 Isa Fulford 老师合作授课，Isa 老师曾开发过受欢迎的 ChatGPT 检索插件，并且在教授 LLM （Large Language Model， 大语言模型）技术在产品中的应用方面做出了很大贡献。她还参与编写了教授人们使用 Prompt 的 OpenAI cookbook。我们希望通过本模块的学习，与大家分享使用提示词开发 LLM 应用的最佳实践和技巧。', '网络上有许多关于提示词（Prompt， 本教程中将保留该术语）设计的材料，例如《30 prompts everyone has to know》之类的文章，这些文章主要集中在 ChatGPT 的 Web 界面上，许多人在使用它执行特定的、通常是一次性的任务。但我们认为，对于开发人员，大语言模型（LLM） 的更强大功能是能通过 API 接口调用，从而快速构建软件应用程序。实际上，我们了解到 DeepLearning.AI 的姊妹公司 AI Fund 的团队一直在与许多初创公司合作，将这些技术应用于诸多应用程序上。很兴奋能看到 LLM API 能够让开发人员非常快速地构建应用程序。\n在本模块，我们将与读者分享提升大语言模型应用效果的各种技巧和最佳实践。书中内容涵盖广泛，包括软件开发提示词设计、文本总结、推理、转换、扩展以及构建聊天机器人等语言模型典型应用场景。我们衷心希望该课程能激发读者的想象力，开发出更出色的语言模型应用。', '二、总结\n本章重点讲解了在开发大语言模型应用时，采用迭代方式不断优化 Prompt 的过程。作为 Prompt 工程师，关键不是一开始就要求完美的 Prompt，而是掌握有效的 Prompt 开发流程。\n具体来说，首先编写初版 Prompt，然后通过多轮调整逐步改进，直到生成了满意的结果。对于更复杂的应用，可以在多个样本上进行迭代训练，评估 Prompt 的平均表现。在应用较为成熟后，才需要采用在多个样本集上评估 Prompt 性能的方式来进行细致优化。因为这需要较高的计算资源。\n总之，Prompt 工程师的核心是掌握 Prompt 的迭代开发和优化技巧，而非一开始就要求100%完美。通过不断调整试错，最终找到可靠适用的 Prompt 形式才是设计 Prompt 的正确方法。\n读者可以在 Jupyter Notebook 上，对本章给出的示例进行实践，修改 Prompt 并观察不同输出，以深入理解 Prompt 迭代优化的过程。这会对进一步开发复杂语言模型应用提供很好的实践准备。\n三、英文版\n产品说明书\nfact_sheet_chair = """"""\nOVERVIEW']","《Prompt Engineering for Developer》课程由吴恩达与 OpenAI 技术团队成员 Isa Fulford 合作授课，主要分享使用提示词开发 LLM 应用的最佳实践和技巧，内容涵盖：软件开发提示词设计、文本总结、推理、转换、扩展、构建聊天机器人等典型应用场景；并强调通过迭代方式不断优化 Prompt。
+
+Isa Fulford 曾开发过受欢迎的 ChatGPT 检索插件（具体插件名称未提供）；她在教授 LLM 技术在产品中的应用方面做出了很大贡献，并参与编写了教授人们使用 Prompt 的 OpenAI cookbook。",根据给定内容，本部分面向开发者，基于吴恩达老师的《Prompt Engineering for Developer》课程编写。该课程由吴恩达老师与 OpenAI 技术团队成员 Isa Fulford 老师合作授课。Isa Fulford 曾开发过受欢迎的 ChatGPT 检索插件，并在教授 LLM 技术在产品中的应用方面做出很大贡献；她还参与编写了教授人们使用 Prompt 的 OpenAI cookbook。本模块旨在与大家分享使用提示词开发 LLM 应用的最佳实践和技巧。,,0.7290445303074892,0.9999999999,1.0,
+作为使用大语言模型 API 构建语言应用工具的开发者，为什么说 LLM 通过 API 接口调用比仅在 ChatGPT 网页界面上执行任务更具开发价值？,"['网络上有许多关于提示词（Prompt， 本教程中将保留该术语）设计的材料，例如《30 prompts everyone has to know》之类的文章，这些文章主要集中在 ChatGPT 的 Web 界面上，许多人在使用它执行特定的、通常是一次性的任务。但我们认为，对于开发人员，大语言模型（LLM） 的更强大功能是能通过 API 接口调用，从而快速构建软件应用程序。实际上，我们了解到 DeepLearning.AI 的姊妹公司 AI Fund 的团队一直在与许多初创公司合作，将这些技术应用于诸多应用程序上。很兴奋能看到 LLM API 能够让开发人员非常快速地构建应用程序。\n在本模块，我们将与读者分享提升大语言模型应用效果的各种技巧和最佳实践。书中内容涵盖广泛，包括软件开发提示词设计、文本总结、推理、转换、扩展以及构建聊天机器人等语言模型典型应用场景。我们衷心希望该课程能激发读者的想象力，开发出更出色的语言模型应用。', '第五章 推断\n在这一章中，我们将通过一个故事，引领你了解如何从产品评价和新闻文章中推导出情感和主题。\n让我们先想象一下，你是一名初创公司的数据分析师，你的任务是从各种产品评论和新闻文章中提取出关键的情感和主题。这些任务包括了标签提取、实体提取、以及理解文本的情感等等。在传统的机器学习流程中，你需要收集标签化的数据集、训练模型、确定如何在云端部署模型并进行推断。尽管这种方式可能会产生不错的效果，但完成这一全流程需要耗费大量的时间和精力。而且，每一个任务，比如情感分析、实体提取等等，都需要训练和部署单独的模型。\n然而，就在你准备投入繁重工作的时候，你发现了大型语言模型（LLM）。LLM 的一个明显优点是，对于许多这样的任务，你只需要编写一个 Prompt，就可以开始生成结果，大大减轻了你的工作负担。这个发现像是找到了一把神奇的钥匙，让应用程序开发的速度加快了许多。最令你兴奋的是，你可以仅仅使用一个模型和一个 API 来执行许多不同的任务，无需再纠结如何训练和部署许多不同的模型。\n让我们开始这一章的学习，一起探索如何利用 LLM 加快我们的工作进程，提高我们的工作效率。\n一、情感推断', '第一章 简介\n欢迎来到面向开发者的提示工程部分，本部分内容基于吴恩达老师的《Prompt Engineering for Developer》课程进行编写。《Prompt Engineering for Developer》课程是由吴恩达老师与 OpenAI 技术团队成员 Isa Fulford 老师合作授课，Isa 老师曾开发过受欢迎的 ChatGPT 检索插件，并且在教授 LLM （Large Language Model， 大语言模型）技术在产品中的应用方面做出了很大贡献。她还参与编写了教授人们使用 Prompt 的 OpenAI cookbook。我们希望通过本模块的学习，与大家分享使用提示词开发 LLM 应用的最佳实践和技巧。']","因为通过 API 调用 LLM，开发者可以把模型能力直接集成到软件应用中，快速构建、自动化和扩展应用；而 ChatGPT 网页界面主要用于人工执行特定的、通常一次性的任务。
+
+具体来说，API 的优势在于：
+
+- 能嵌入应用程序，而不只是人工在网页上交互；
+- 可以用一个模型和一个 API 执行多种任务，如情感分析、实体提取、总结、推理等；
+- 不必为每个任务单独收集数据、训练模型、部署模型；
+- 只需编写合适 Prompt，就能开始生成结果，大幅减少工作负担，加快开发速度。
+
+因此，对开发者而言，API 调用比仅在 ChatGPT 网页界面执行任务更具产品化和工程化价值。",因为网络上的提示词设计材料多集中在 ChatGPT 的 Web 界面，用于执行特定的、通常是一次性的任务；而对开发人员而言，大语言模型（LLM）的更强大功能是能通过 API 接口调用，从而快速构建软件应用程序。LLM API 能让开发人员非常快速地构建应用程序，并且本模块会分享提升大语言模型应用效果的各种技巧和最佳实践，涵盖软件开发提示词设计、文本总结、推理、转换、扩展以及构建聊天机器人等语言模型典型应用场景。,,0.8711588769981226,0.99999999995,1.0,
+base LLM Prompt next-word prediction example: what does a base LLM predict after 从前，有一只独角兽 and what does it predict for 法国的首都是什么 based on internet articles and Q&A lists about France?,"['随着 LLM 的发展，其大致可以分为两种类型，后续称为基础 LLM 和指令微调（Instruction Tuned）LLM。基础LLM是基于文本训练数据，训练出预测下一个单词能力的模型。其通常通过在互联网和其他来源的大量数据上训练，来确定紧接着出现的最可能的词。例如，如果你以“从前，有一只独角兽”作为 Prompt ，基础 LLM 可能会继续预测“她与独角兽朋友共同生活在一片神奇森林中”。但是，如果你以“法国的首都是什么”为 Prompt ，则基础 LLM 可能会根据互联网上的文章，将回答预测为“法国最大的城市是什么？法国的人口是多少？”，因为互联网上的文章很可能是有关法国国家的问答题目列表。', '与基础语言模型不同，指令微调 LLM 通过专门的训练，可以更好地理解并遵循指令。举个例子，当询问“法国的首都是什么？”时，这类模型很可能直接回答“法国的首都是巴黎”。指令微调 LLM 的训练通常基于预训练语言模型，先在大规模文本数据上进行预训练，掌握语言的基本规律。在此基础上进行进一步的训练与微调（finetune），输入是指令，输出是对这些指令的正确回复。有时还会采用RLHF（reinforcement learning from human feedback，人类反馈强化学习）技术，根据人类对模型输出的反馈进一步增强模型遵循指令的能力。通过这种受控的训练过程。指令微调 LLM 可以生成对指令高度敏感、更安全可靠的输出，较少无关和损害性内容。因此。许多实际应用已经转向使用这类大语言模型。', 'Introducing our mid-century inspired office chair, part of a beautiful furniture collection. With various color and finish options, it can be customized to suit any space. Choose between plastic or full upholstery in a range of fabrics and leathers. The chair features a durable aluminum base and easy height adjustment. Suitable for both home and business use. Made in Italy.\nlst = response.split()\nprint(len(lst))\n60\n1.3处理抓错文本细节\n# 优化后的 Prompt，说明面向对象，应具有什么性质且侧重于什么方面\nprompt = f""""""']","根据片段，LLM 大致分为两类：
+
+- **基础 LLM**：主要预测下一个词。例如问“法国的首都是什么”，它可能续写成“法国最大的城市是什么？法国的人口是多少？”  
+- **指令微调 LLM**：经过专门训练，能更好遵循指令。同样问题会直接回答“法国的首都是巴黎”。
+
+其余片段没有给出明确问题，无法据此回答更多。",LLM 大致可以分为基础 LLM 和指令微调 LLM 两种类型。基础 LLM 是基于文本训练数据，训练出预测下一个单词能力的模型，通常通过在互联网和其他来源的大量数据上训练，来确定紧接着出现的最可能的词。例如，如果以 从前，有一只独角兽 作为 Prompt，基础 LLM 可能会继续预测 她与独角兽朋友共同生活在一片神奇森林中。但是，如果以 法国的首都是什么 作为 Prompt，则基础 LLM 可能会根据互联网上的文章，将回答预测为 法国最大的城市是什么？法国的人口是多少？，因为互联网上的文章很可能是有关法国国家的问答题目列表。,,0.5443808322619951,,1.0,
+作为一名使用大语言模型 API 构建多语言翻译与文本转换工具的语言应用开发者，我希望理解：在指令微调 LLM 的训练过程中，RLHF 这项技术是如何依据人类对模型输出的反馈，进一步增强模型遵循指令的能力，并帮助模型生成对指令高度敏感、更安全可靠且较少无关和损害性内容的输出？,"['与基础语言模型不同，指令微调 LLM 通过专门的训练，可以更好地理解并遵循指令。举个例子，当询问“法国的首都是什么？”时，这类模型很可能直接回答“法国的首都是巴黎”。指令微调 LLM 的训练通常基于预训练语言模型，先在大规模文本数据上进行预训练，掌握语言的基本规律。在此基础上进行进一步的训练与微调（finetune），输入是指令，输出是对这些指令的正确回复。有时还会采用RLHF（reinforcement learning from human feedback，人类反馈强化学习）技术，根据人类对模型输出的反馈进一步增强模型遵循指令的能力。通过这种受控的训练过程。指令微调 LLM 可以生成对指令高度敏感、更安全可靠的输出，较少无关和损害性内容。因此。许多实际应用已经转向使用这类大语言模型。', '网络上有许多关于提示词（Prompt， 本教程中将保留该术语）设计的材料，例如《30 prompts everyone has to know》之类的文章，这些文章主要集中在 ChatGPT 的 Web 界面上，许多人在使用它执行特定的、通常是一次性的任务。但我们认为，对于开发人员，大语言模型（LLM） 的更强大功能是能通过 API 接口调用，从而快速构建软件应用程序。实际上，我们了解到 DeepLearning.AI 的姊妹公司 AI Fund 的团队一直在与许多初创公司合作，将这些技术应用于诸多应用程序上。很兴奋能看到 LLM API 能够让开发人员非常快速地构建应用程序。\n在本模块，我们将与读者分享提升大语言模型应用效果的各种技巧和最佳实践。书中内容涵盖广泛，包括软件开发提示词设计、文本总结、推理、转换、扩展以及构建聊天机器人等语言模型典型应用场景。我们衷心希望该课程能激发读者的想象力，开发出更出色的语言模型应用。', '因此，本课程将重点介绍针对指令微调 LLM 的最佳实践，我们也建议您将其用于大多数使用场景。当您使用指令微调 LLM 时，您可以类比为向另一个人提供指令（假设他很聪明但不知道您任务的具体细节）。因此，当 LLM 无法正常工作时，有时是因为指令不够清晰。例如，如果您想问“请为我写一些关于阿兰·图灵( Alan Turing )的东西”，在此基础上清楚表明您希望文本专注于他的科学工作、个人生活、历史角色或其他方面可能会更有帮助。另外您还可以指定回答的语调， 来更加满足您的需求，可选项包括专业记者写作，或者向朋友写的随笔等。\n如果你将 LLM 视为一名新毕业的大学生，要求他完成这个任务，你甚至可以提前指定他们应该阅读哪些文本片段来写关于阿兰·图灵的文本，这样能够帮助这位新毕业的大学生更好地完成这项任务。本书的下一章将详细阐释提示词设计的两个关键原则：清晰明确和给予充足思考时间。']","根据上下文，RLHF 是在指令微调基础上，利用**人类对模型输出的反馈**，通过强化学习进一步训练模型。其作用是：让模型更倾向于生成符合指令和人类偏好的回复，从而增强遵循指令的能力，并使其输出**对指令高度敏感、更安全可靠、较少无关和损害性内容**。
+
+不过，片段没有展开 RLHF 的具体算法细节，例如如何把反馈转成奖励、如何优化策略等。",在指令微调 LLM 的训练中，有时会采用 RLHF（reinforcement learning from human feedback，人类反馈强化学习）技术，根据人类对模型输出的反馈进一步增强模型遵循指令的能力。通过这种受控的训练过程。指令微调 LLM 可以生成对指令高度敏感、更安全可靠的输出，较少无关和损害性内容。,,0.556588349699417,0.9999999999,1.0,
+咋让LLM写阿兰·图灵滴东西？,"['因此，本课程将重点介绍针对指令微调 LLM 的最佳实践，我们也建议您将其用于大多数使用场景。当您使用指令微调 LLM 时，您可以类比为向另一个人提供指令（假设他很聪明但不知道您任务的具体细节）。因此，当 LLM 无法正常工作时，有时是因为指令不够清晰。例如，如果您想问“请为我写一些关于阿兰·图灵( Alan Turing )的东西”，在此基础上清楚表明您希望文本专注于他的科学工作、个人生活、历史角色或其他方面可能会更有帮助。另外您还可以指定回答的语调， 来更加满足您的需求，可选项包括专业记者写作，或者向朋友写的随笔等。\n如果你将 LLM 视为一名新毕业的大学生，要求他完成这个任务，你甚至可以提前指定他们应该阅读哪些文本片段来写关于阿兰·图灵的文本，这样能够帮助这位新毕业的大学生更好地完成这项任务。本书的下一章将详细阐释提示词设计的两个关键原则：清晰明确和给予充足思考时间。', '网络上有许多关于提示词（Prompt， 本教程中将保留该术语）设计的材料，例如《30 prompts everyone has to know》之类的文章，这些文章主要集中在 ChatGPT 的 Web 界面上，许多人在使用它执行特定的、通常是一次性的任务。但我们认为，对于开发人员，大语言模型（LLM） 的更强大功能是能通过 API 接口调用，从而快速构建软件应用程序。实际上，我们了解到 DeepLearning.AI 的姊妹公司 AI Fund 的团队一直在与许多初创公司合作，将这些技术应用于诸多应用程序上。很兴奋能看到 LLM API 能够让开发人员非常快速地构建应用程序。\n在本模块，我们将与读者分享提升大语言模型应用效果的各种技巧和最佳实践。书中内容涵盖广泛，包括软件开发提示词设计、文本总结、推理、转换、扩展以及构建聊天机器人等语言模型典型应用场景。我们衷心希望该课程能激发读者的想象力，开发出更出色的语言模型应用。']","让 LLM 写阿兰·图灵时，别只说“写点阿兰·图灵的东西”，要把指令说清楚。
+
+例如：
+“请写一段关于阿兰·图灵的文本，重点介绍他的科学工作，语调像专业记者，并参考以下材料：……”
+
+也可以指定写他的个人生活、历史角色等，或指定语调：专业记者风格、给朋友写的随笔等。还可以像给新毕业大学生布置任务一样，提前告诉它该参考哪些文本片段。
+
+核心原则是：**清晰明确、给予充足思考时间**。",当您使用指令微调 LLM 时，可以类比为向另一个人提供指令（假设他很聪明但不知道您任务的具体细节）。当 LLM 无法正常工作时，有时是因为指令不够清晰。例如，如果您想问“请为我写一些关于阿兰·图灵( Alan Turing )的东西”，在此基础上清楚表明您希望文本专注于他的科学工作、个人生活、历史角色或其他方面可能会更有帮助。您还可以指定回答的语调，比如专业记者写作或向朋友写的随笔。您甚至可以将 LLM 视为一名新毕业的大学生，提前指定他们应该阅读哪些文本片段来写关于阿兰·图灵的文本。,,0.48696730861730997,0.9999999999,1.0,0.7826808210474936
+给予模型充足思考时间如何提升 LLM 性能？,"['第二章 提示原则\n如何去使用 Prompt，以充分发挥 LLM 的性能？首先我们需要知道设计 Prompt 的原则，它们是每一个开发者设计 Prompt 所必须知道的基础概念。本章讨论了设计高效 Prompt 的两个关键原则：编写清晰、具体的指令和给予模型充足思考时间。掌握这两点，对创建可靠的语言模型交互尤为重要。\n首先，Prompt 需要清晰明确地表达需求，提供充足上下文，使语言模型准确理解我们的意图，就像向一个外星人详细解释人类世界一样。过于简略的 Prompt 往往使模型难以把握所要完成的具体任务。\n其次，让语言模型有充足时间推理也极为关键。就像人类解题一样，匆忙得出的结论多有失误。因此 Prompt 应加入逐步推理的要求，给模型留出充分思考时间，这样生成的结果才更准确可靠。\n如果 Prompt 在这两点上都作了优化，语言模型就能够尽可能发挥潜力，完成复杂的推理和生成任务。掌握这些 Prompt 设计原则，是开发者取得语言模型应用成功的重要一步。\n一、原则一 编写清晰、具体的指令', '第五章 推断\n在这一章中，我们将通过一个故事，引领你了解如何从产品评价和新闻文章中推导出情感和主题。\n让我们先想象一下，你是一名初创公司的数据分析师，你的任务是从各种产品评论和新闻文章中提取出关键的情感和主题。这些任务包括了标签提取、实体提取、以及理解文本的情感等等。在传统的机器学习流程中，你需要收集标签化的数据集、训练模型、确定如何在云端部署模型并进行推断。尽管这种方式可能会产生不错的效果，但完成这一全流程需要耗费大量的时间和精力。而且，每一个任务，比如情感分析、实体提取等等，都需要训练和部署单独的模型。\n然而，就在你准备投入繁重工作的时候，你发现了大型语言模型（LLM）。LLM 的一个明显优点是，对于许多这样的任务，你只需要编写一个 Prompt，就可以开始生成结果，大大减轻了你的工作负担。这个发现像是找到了一把神奇的钥匙，让应用程序开发的速度加快了许多。最令你兴奋的是，你可以仅仅使用一个模型和一个 API 来执行许多不同的任务，无需再纠结如何训练和部署许多不同的模型。\n让我们开始这一章的学习，一起探索如何利用 LLM 加快我们的工作进程，提高我们的工作效率。\n一、情感推断', '随着 LLM 的发展，其大致可以分为两种类型，后续称为基础 LLM 和指令微调（Instruction Tuned）LLM。基础LLM是基于文本训练数据，训练出预测下一个单词能力的模型。其通常通过在互联网和其他来源的大量数据上训练，来确定紧接着出现的最可能的词。例如，如果你以“从前，有一只独角兽”作为 Prompt ，基础 LLM 可能会继续预测“她与独角兽朋友共同生活在一片神奇森林中”。但是，如果你以“法国的首都是什么”为 Prompt ，则基础 LLM 可能会根据互联网上的文章，将回答预测为“法国最大的城市是什么？法国的人口是多少？”，因为互联网上的文章很可能是有关法国国家的问答题目列表。']",给予模型充足思考时间，可以通过在 Prompt 中要求“逐步推理”，让模型先展开思考再给结论。这样能避免匆忙作答带来的失误，使结果在复杂推理和生成任务中更准确、可靠。它是设计高效 Prompt 的关键原则之一。,给予模型充足思考时间是设计高效 Prompt 的关键原则之一。让语言模型有充足时间推理极为关键；就像人类解题一样，匆忙得出的结论多有失误。因此 Prompt 应加入逐步推理的要求，给模型留出充分思考时间，这样生成的结果才更准确可靠。,1.0,0.5361296818972643,0.9999999999,1.0,0.5621227846642758
+How do delimiters prevent Prompt Rejection?,"['在编写 Prompt 时，我们可以使用各种标点符号作为“分隔符”，将不同的文本部分区分开来。\n分隔符就像是 Prompt 中的墙，将不同的指令、上下文、输入隔开，避免意外的混淆。你可以选择用 ```，""""""，< >，<tag> </tag>，: 等做分隔符，只要能明确起到隔断作用即可。\n使用分隔符尤其重要的是可以防止 提示词注入（Prompt Rejection）。什么是提示词注入？就是用户输入的文本可能包含与你的预设 Prompt 相冲突的内容，如果不加分隔，这些输入就可能“注入”并操纵语言模型，导致模型产生毫无关联的乱七八糟的输出。\n在以下的例子中，我们给出一段话并要求 GPT 进行总结，在该示例中我们使用 ``` 来作为分隔符。\nfrom tool import get_completion\ntext = f""""""\n您应该提供尽可能清晰、具体的指示，以表达您希望模型执行的任务。\\\n这将引导模型朝向所需的输出，并降低收到无关或不正确响应的可能性。\\\n不要将写清晰的提示词与写简短的提示词混淆。\\', 'and reduce the chances of receiving irrelevant \\ \nor incorrect responses. Don\'t confuse writing a \\ \nclear prompt with writing a short prompt. \\ \nIn many cases, longer prompts provide more clarity \\ \nand context for the model, which can lead to \\ \nmore detailed and relevant outputs.\n""""""\nprompt = f""""""\nSummarize the text delimited by triple backticks \\ \ninto a single sentence.\n```{text}```\n""""""\nresponse = get_completion(prompt)\nprint(response)', '- Item purchased by reviewer\n- Company that made the item\nThe review is delimited with triple backticks. \\\nFormat your response as a JSON object with \\\n""Sentiment"", ""Anger"", ""Item"" and ""Brand"" as the keys.\nIf the information isn\'t present, use ""unknown"" \\\nas the value.\nMake your response as short as possible.\nFormat the Anger value as a boolean.\nReview text: ```{lamp_review}```\n""""""\nresponse = get_completion(prompt)\nprint(response)\n{\n  ""Sentiment"": ""positive"",\n  ""Anger"": false,\n  ""Item"": ""lamp"",']","分隔符通过把指令、上下文和用户输入明确隔开，像“墙”一样让模型知道哪些是预设指令、哪些只是待处理文本，从而避免用户输入中与预设 Prompt 冲突的内容被当作指令“注入”并操纵模型，导致无关或混乱输出。常用分隔符如 ```、""""""、< >、<tag> </tag>、: 等。","Delimiters such as ```, 三引号, < >, <tag> </tag>, and : can be used in a Prompt to separate different text parts, including instructions, context, and input, and to avoid accidental confusion. Using delimiters is especially important for preventing Prompt Rejection, which refers to prompt injection: user input may contain content that conflicts with the preset Prompt, and without separation this input can inject and manipulate the language model, causing unrelated messy output.",0.875,0.4001625269367015,0.9999999999,1.0,
+在牛吨法推导中，Hessian逆矩阵的计祘量较大促使拟牛吨法采用什么替代；而PAC学系中样苯复杂度 m 是关与哪些量的多项式，并由此说明VC维有限假设空间的可学系性？,"['再由h和g的定义，h表示假设空间中经验误差最小的假设，g表示泛化误差最小的假设，将这两个假设\n共用作用于样本集D，则一定有bE(h)⩽bE(g)，因此上式可以简化为：P(E(h)−E(g)⩽ϵ)⩾1−δ\n根据式12.32和式12.34，可以求出m为关于(1/ϵ,1/δ,size(x),size(c))的多项式，因此根据定理12.2，定\n理12.5，得到结论任何VC维有限的假设空间H都是(不可知)PAC可学习的。→_→\n配套视频教程：https://www.bilibili.com/video/BV1Mh411e7VU←_←', '→_→\n欢迎去各大电商平台选购纸质版南瓜书《机器学习公式详解》←_←\n首先对上式求导\n∂f(x)∂x=∂f(xt)∂x+∂∇f(xt)T(x−xt)∂x+12\n∂(x−xt)T∇2f(xt)(x−xt)∂x=0+∇f\x00xt\x01+12\n\x10∇2f\x00xt\x01+∇2f\x00xt\x01T\x11\x00x−xt\x01\n假设函数f(x)在xt处二阶可导，且偏导数连续，则∇2f(xt)是对称矩阵，上式可写为\n∂f(x)∂x=0+∇f\x00xt\x01+12×2×∇2f\x00xt\x01\x00x−xt\x01=∇f\x00xt\x01+∇2f\x00xt\x01\x00x−xt\x01\n令上式等于0∇f\x00xt\x01+∇2f\x00xt\x01\x00x−xt\x01=0\n当∇2f(xt)是可逆矩阵时，解得\nx=xt−\x02\n∇2f\x00xt\x01\x03−1∇f\x00xt\x01\n令上式为xt+1即可得到牛顿法的迭代公式\nxt+1=xt−\x02\n∇2f\x00xt\x01\x03−1∇f\x00xt\x01\n通过上述推导可知，牛顿法每次迭代时需要求解Hessian矩阵的逆矩阵，该步骤计算量通常较大，因此有\n人基于牛顿法，将其中求Hessian矩阵的逆矩阵改为求计算量更低的近似逆矩阵，我们称此类算法为“拟\n牛顿法”。', '本节第2段讨论的目标概念,可简单理解为真实的映射函数;\n本节第3段讨论的假设空间,可简单理解为学习算法不同参数时的存在,例如线性分类超平面f(x)=w⊤x+b,每一组(w,b)取值就是一个假设;\n本节第4段讨论的可分的(separable)和不可分的(non-separable),例如西瓜书第100页的图5.4,若\n假设空间是线性分类器,则(a)(b)(c)是可分的,而(d)是不可分的;当然,若假设空间为椭圆分类器(分类\n边界为椭圆),则(d)也是可分的;\n本节第5段提到的“等效的假设”指的是第7页图1.3中的A和B两条曲线都可以完美拟合有限的\n样本点,故称之为“等效”的假设;另外本段最后还给出了概率近似正确的含义,即“以较大概率学得误差\n满足预设上限的模型”。\n定义12.1PAC辨识的式(12.9)表示输出假设h的泛化误差E(h)⩽ϵ的概率不小于1−δ;即“学习\n算法L能以较大概率(至少1−δ)学得目标概念c的近似(误差最多为ϵ)”。\n定义12.2PAC可学习的核心在于,需要的样本数目m是1/ϵ,1/δ,size(x),size(c)的多项式函数。']","拟牛顿法用**计算量更低的近似逆矩阵**替代牛顿法中的 **Hessian 矩阵的逆矩阵**。
+
+在 PAC 学习中，样本复杂度 \(m\) 是关于  
+\[
+1/\epsilon,\quad 1/\delta,\quad \operatorname{size}(x),\quad \operatorname{size}(c)
+\]
+的多项式。
+
+因此，根据相关定理可得：**任何 VC 维有限的假设空间 \(H\) 都是（不可知）PAC 可学习的。**","在牛顿法推导中，迭代公式为 xt+1=xt−(∇²f(xt))^{-1}∇f(xt)，每次迭代需要求解Hessian矩阵的逆矩阵，该步骤计算量通常较大，因此有人基于牛顿法，将其中求Hessian矩阵的逆矩阵改为求计算量更低的近似逆矩阵，这类算法称为拟牛顿法。对于PAC学习部分，由h和g的定义，h表示假设空间中经验误差最小的假设，g表示泛化误差最小的假设，两者共同作用于样本集D，则一定有 bE(h) ≤ bE(g)，因此可简化为 P(E(h)−E(g) ≤ ε) ≥ 1−δ。根据式12.32和式12.34，可以求出 m 为关于 (1/ε, 1/δ, size(x), size(c)) 的多项式，因此根据定理12.2、定理12.5，得到结论：任何VC维有限的假设空间H都是（不可知）PAC可学习的。",,,0.9999999999666667,1.0,0.6222719478375095
+机器学习算法中，类别不平横为啥精度虚高，特征工程能咋扩更多维度？,"['对于类别平衡问题，“西瓜书”2.3.1节中的“精度”通常无法满足该特殊任务的需求，例如“西瓜书”\n在本节第一段的举例：有998个反例和2个正例，若机器学习算法返回一个永远将新样本预测为反例的\n学习器则能达到99.8%的精度，显然虚高，因此在类别不平衡时常采用2.3节中的查准率、查全率和F1\n来度量学习器的性能。\n参考文献\n[1]王燕军.最优化基础理论与方法.复旦大学出版社,2011.[2]Wikipediacontributors.Matrixcalculus,2022.[3]张贤达.矩阵分析与应用.第2版.清华大学出版社,2013.→_→\n配套视频教程：https://www.bilibili.com/video/BV1Mh411e7VU←_←', '征”（或称为“属性”）唯一刻画出来，而向量的各个维度即可用来描述各个特征。例如，如果用色泽、根\n蒂和敲声这3个特征来刻画西瓜，那么一个“色泽青绿，根蒂蜷缩，敲声清脆”的西瓜用向量来表示即为x=(青绿;蜷缩;清脆)（向量中的元素用分号“;”分隔时表示此向量为列向量，用逗号“,”分隔时表示为行向量），\n其中青绿、蜷缩和清脆分别对应为相应特征的取值，也称为“属性值”。显然，用中文书写向量的方式不够\n“数学”，因此需要将属性值进一步数值化，具体例子参见“西瓜书”第3章3.2。此外，仅靠以上3个特\n征来刻画西瓜显然不够全面细致，因此还需要扩展更多维度的特征，一般称此类与特征处理相关的工作为\n“特征工程”。\n样本空间：也称为“输入空间”或“属性空间”。由于样本采用的是标明各个特征取值的“特征向量”\n来进行表示，根据线性代数的知识可知，有向量便会有向量所在的空间，因此称表示样本的特征向量所在\n的空间为样本空间，通常用花式大写的X表示。\n数据集：数据集通常用集合来表示，令集合D={x1,x2,...,xm}表示包含m个样本的数据集，一般', '为了能进行数学运算，样本中的非数值类属性都需要进行数值化。对于存在“序”关系的属性，可通过\n连续化将其转化为带有相对大小关系的连续值；对于不存在“序”关系的属性，可根据属性取值将其拆解为\n多个属性，例如“西瓜书”中所说的“瓜类”属性，可将其拆解为“是否是西瓜”、“是否是南瓜”、“是否是黄\n瓜”3个属性，其中每个属性的取值为1或0，1表示“是”，0表示“否”。具体地，假如现有3个瓜类样本：x1=(甜度=高;瓜类=西瓜),x2=(甜度=中;瓜类=南瓜),x3=(甜度=低;瓜类=黄瓜)，其中“甜\n度”属性存在序关系，因此可将“高”、“中”、“低”转化为{1.0,0.5,0.0}，“瓜类”属性不存在序关系，则按照上\n述方法进行拆解，3个瓜类样本数值化后的结果为：x1=(1.0;1;0;0),x1=(0.5;0;1;0),x1=(0.0;0;0;1)。\n以上针对样本属性所进行的处理工作便是第1章1.2基本术语中提到的“特征工程”范畴，完成属性\n数值化以后通常还会进行缺失值处理、规范化、降维等一系列处理工作。由于特征工程属于算法实践过程']","类别不平衡时，多数类样本占绝大多数。若算法总把新样本预测为多数类（如998个反例、2个正例时永远预测反例），精度可达99.8%，但这不代表能识别正例，所以精度“虚高”。此时应看查准率、查全率、F1。
+
+特征工程扩更多维度：原始特征不够全面时，可构造/扩展更多特征。非数值属性要数值化：有“序”的属性连续化；无“序”的属性可拆成多个0/1属性，例如“瓜类”拆成“是否西瓜、是否南瓜、是否黄瓜”，维度就增加了。之后通常还会做缺失值处理、规范化、降维等。",对于类别不平衡问题，精度通常无法满足该特殊任务的需求。例如有998个反例和2个正例，若机器学习算法返回一个永远将新样本预测为反例的学习器，则能达到99.8%的精度，显然虚高，因此类别不平衡时常采用查准率、查全率和F1来度量学习器的性能。关于特征工程，用色泽、根蒂和敲声这3个特征来刻画西瓜时，一个“色泽青绿，根蒂蜷缩，敲声清脆”的西瓜可用向量x=(青绿;蜷缩;清脆)表示，其中青绿、蜷缩和清脆分别对应相应特征的取值，也称为属性值；用中文书写向量的方式不够数学，因此需要将属性值进一步数值化。仅靠以上3个特征来刻画西瓜显然不够全面细致，因此还需要扩展更多维度的特征，一般称此类与特征处理相关的工作为特征工程。,0.9285714285714286,0.7582640321416002,0.9999999999666667,1.0,0.48195047169304833
+结合牛顿法推导和对数似然函数 LL(θ) 的下界分析，说明牛顿法在 Hessian 矩阵可逆时得到的迭代公式是什么，以及要使对数似然函数 LL(θ) 的下界函数 B(θ) 达到最大值需要满足什么条件？,"['→_→\n欢迎去各大电商平台选购纸质版南瓜书《机器学习公式详解》←_←\n若令B(θ)=m\nPi=1P\nziQi(zi)lnp(xi,zi;θ)Qi(zi)，则此时B(θ)为LL(θ)的下界函数，那么这个下界函数所能构成\n的最优下界是多少？即B(θ)的最大值是多少？显然，B(θ)是LL(θ)的下界函数，反过来LL(θ)是其上\n界函数，所以如果能使得B(θ)=LL(θ)，则此时的B(θ)就取到了最大值。根据Jensen不等式的性质\n可知，如果能使得\np(xi,zi;θ)Qi(zi)\n恒等于某个常量c，大于等于号便可以取到等号。因此，只需任意选取满足\np(xi,zi;θ)Qi(zi)=c的Qi(zi)就能使得B(θ)达到最大值。由于Qi(zi)是zi的概率质量函数，所以Qi(zi)同\n时也满足约束0⩽Qi(zi)⩽1,PziQi(zi)=1，结合Qi(zi)的所有约束可以推得\np(xi,zi;θ)Qi(zi)=cp(xi,zi;θ)=c·Qi(zi)X\nzip(xi,zi;θ)=c·X\nziQi(zi)X\nzip(xi,zi;θ)=cp(xi,zi;θ)Qi(zi)=', '牛顿法”。\n牛顿法虽然期望在每次迭代时能取到极小值点，但是通过上述推导可知，迭代公式是根据极值点的必\n要条件推导而得，因此并不保证一定是极小值点。\n无论是梯度下降法还是牛顿法，根据其终止迭代的条件可知，其都是近似求解算法，即使f(x)是凸\n函数，也并不一定保证最终求得的是全局最优解，仅能保证其接近全局最优解。不过在解决实际问题时，\n并不一定苛求解得全局最优解，在能接近全局最优甚至局部最优时通常也能很好地解决问题。3.3.4\n式(3.29)的解释\n根据上述牛顿法的迭代公式可知，此式为式(3.27)应用牛顿法时的迭代公式。3.3.5\n式(3.30)的推导\n∂ℓ(β)∂β=\n∂Pmi=1\x10\n−yiβTˆxi+ln\x10\n1+eβTˆxi\x11\x11∂β=\nmX\ni=1\uf8eb\n\uf8ed∂\x00−yiβTˆxi\x01\n∂β+\n∂ln\x10\n1+eβTˆxi\x11\n∂β\uf8f6\n\uf8f8=\nmX\ni=1\x12\n−yiˆxi+1\n1+eβTˆxi·ˆxieβTˆxi\x13\n=−m\nXi=1ˆxi\nyi−eβTˆxi1+eβTˆxi!\n=−m\nXi=1ˆxi(yi−p1(ˆxi;β))→_→', '则\nLL(θ)⩾B(θ,θ(t))\n即B(θ,θ(t))是LL(θ)的下界，此时若设θ(t+1)能使得B(θ,θ(t))达到极大，即\nB(θ(t+1),θ(t))⩾B(θ,θ(t))\n由于LL(θ(t))=B(θ(t),θ(t))，那么可以进一步推得\nLL(θ(t+1))⩾B(θ(t+1),θ(t))⩾B(θ(t),θ(t))=LL(θ(t))→_→\n配套视频教程：https://www.bilibili.com/video/BV1Mh411e7VU←_←']","牛顿法中，设第 \(t\) 次迭代的梯度为  
+\[
+g_t=\nabla LL(\theta^{(t)}),\qquad H_t=\nabla^2 LL(\theta^{(t)})
+\]
+若 Hessian 矩阵 \(H_t\) 可逆，则迭代公式为  
+\[
+\theta^{(t+1)}=\theta^{(t)}-H_t^{-1}g_t
+\]
+即  
+\[
+\theta^{(t+1)}=\theta^{(t)}-\left[\nabla^2 LL(\theta^{(t)})\right]^{-1}\nabla LL(\theta^{(t)}).
+\]
+该式由令极值必要条件 \(\nabla LL(\theta)=0\) 经二阶泰勒近似推导得到，因此并不保证一定取到极小值或极大值。
+
+对于下界函数 \(B(\theta)\)，要使它达到最大值，需使 Jensen 不等式取等号，即满足  
+\[
+\frac{p(x_i,z_i;\theta)}{Q_i(z_i)}=c
+\]
+对 \(z_i\) 恒等于某个常数 \(c\)。由于 \(Q_i(z_i)\) 是概率质量函数，满足非负且 \(\sum_{z_i}Q_i(z_i)=1\)，可推得  
+\[
+c=p(x_i;\theta),
+\]
+因此  
+\[
+Q_i(z_i)=\frac{p(x_i,z_i;\theta)}{p(x_i;\theta)}=p(z_i\mid x_i;\theta).
+\]
+也就是说，当 \(Q_i(z_i)\) 取为隐变量在当前参数下的后验分布时，\(B(\theta)=LL(\theta)\)，下界函数达到最大值。","在牛顿法部分，若函数 f(x) 在 xt 处二阶可导且偏导数连续，则 ∇²f(xt) 是对称矩阵；对上式求导并令其为 0，可得 ∇f(xt)+∇²f(xt)(x−xt)=0。当 ∇²f(xt) 是可逆矩阵时，解得 x=xt−(∇²f(xt))^{-1}∇f(xt)，令上式为 xt+1 即可得到牛顿法迭代公式 xt+1=xt−(∇²f(xt))^{-1}∇f(xt)。通过上述推导可知，牛顿法每次迭代需要求解 Hessian 矩阵的逆矩阵，该步骤计算量通常较大，因此有人基于牛顿法，将其中求 Hessian 矩阵的逆矩阵改为求计算量更低的近似逆矩阵，称此类算法为拟牛顿法。 在对数似然函数 LL(θ) 部分，若令 B(θ)=∑_{i=1}^{m}∑_{zi} Qi(zi) ln[p(xi,zi;θ)/Qi(zi)]，则此时 B(θ) 为 LL(θ) 的下界函数。B(θ) 是 LL(θ) 的下界函数，反过来 LL(θ) 是其上界函数，所以如果能使得 B(θ)=LL(θ)，则此时的 B(θ) 就取到了最大值。根据 Jensen 不等式的性质，如果能使得 p(xi,zi;θ)/Qi(zi) 恒等于某个常量 c，大于等于号便可以取到等号。因此，只需任意选取满足 p(xi,zi;θ)/Qi(zi)=c 的 Qi(zi) 就能使得 B(θ) 达到最大值。由于 Qi(zi) 是 zi 的概率质量函数，所以 Qi(zi) 同时也满足约束 0≤Qi(zi)≤1，∑_{zi}Qi(zi)=1，结合 Qi(zi) 的所有约束可以推得 p(xi,zi;θ)/Qi(zi)=c，p(xi,zi;θ)=c·Qi(zi)，∑_{zi}p(xi,zi;θ)=c·∑_{zi}Qi(zi)，∑_{zi}p(xi,zi;θ)=c。",0.5714285714285714,0.8888326373561831,0.9999999999,0.625,
+泛化误差界 AdaBoost 咋关联？,"['范化,即“西瓜书”图8.3第7行的Zt。式(8.19)第3行最后一个分式将在规范化过程被吸收。boosting算法是根据调整后的样本再去训练下一个基分类器，这就是“重赋权法”的样本分布的调整\n公式。8.2.16AdaBoost的个人推导\n西瓜书中对AdaBoost的推导和原论文[1]上有些地方有差异，综合原论文和一些参考资料，这里给\n出一版更易于理解的推导，亦可参见我们的视频教程。AdaBoost的目标是学得T个ht(x)和相应的T个αt,得到式(8.4)的H(x),使式(8.5)指数损失函\n数ℓexp(H|D)最小,这就是求解所谓的“加性模型”。特别强调一下,分类器ht(x)如何得到及其相应的\n→_→\n配套视频教程：https://www.bilibili.com/video/BV1Mh411e7VU←_←', '梯度提升(GradientBoosting)\n将AdaBoost的问题一般化,即不限定损失函数为指数损失函数,也不局限于二分类问题,则可以将式\n(8.5)写为更一般化的形式\nℓ(Ht|D)=Ex∼D[err(Ht(x),f(x))]=Ex∼D[err(Ht−1(x)+αtht(x),f(x))]\n问题时,f(x)∈R,损失函数可使用平方损失err(Ht(x),f(x))=(Ht(x)−f(x))2。针对该一般化的损失\n函数和一般的学习问题,要通过T轮迭代得到学习器\nH(x)=T\nXt=1αtht(x)→_→\n配套视频教程：https://www.bilibili.com/video/BV1Mh411e7VU←_←', '，因此ΠH(m)⩽q\n2dlnemd\nm，\n再根据式12.47E(h)⩽bE(h)+Rm(H)+q\nln(1/δ)2m\n即证。12.7\n稳定性\n上上节中介绍的基于VC维的泛化误差界是分布无关、数据独立的，上一节介绍的Rademacher复杂\n度则在一定程度上考虑了数据分布，但二者得到的结果均与具体学习算法无关；本节将要介绍的稳定性分\n→_→\n配套视频教程：https://www.bilibili.com/video/BV1Mh411e7VU←_←']","从这些片段看，**没有直接给出 AdaBoost 的泛化误差界公式**，所以无法据此说明二者具体怎么关联。
+
+片段只表明：
+
+- AdaBoost 是**加性模型**，目标是最小化**指数损失函数**，学得 \(T\) 个 \(h_t(x)\) 和 \(\alpha_t\)，得到 \(H(x)\)。
+- 泛化误差界部分讲的是 **VC维、Rademacher 复杂度、稳定性** 等一般工具。
+- 其中还提到：VC维界是分布无关、数据独立的；Rademacher 复杂度部分考虑数据分布，但结果仍与具体学习算法无关；稳定性则是更偏算法相关的分析。
+
+因此可推测：若要关联 AdaBoost 与泛化误差界，通常需要用 **算法稳定性、间隔分布、Rademacher 复杂度** 等去分析 AdaBoost。但检索片段没有给出 AdaBoost 的具体泛化误差界或稳定性结论，所以**具体关联不知道**。",从给的上下文看，<1-hop> 在推泛化误差界：P(Φ(Z)−EZ[Φ(Z)]≤r√(ln(1/δ)/2m))≥1−δ，再估计 EZ[Φ(Z)] 的上界，最后得到 2Rm(F)。<2-hop> 是 AdaBoost 相关式子，里面有 D(xi)、e−f(xi)Ht−1(xi)、e−α、eα−e−α、I(f(xi)≠h(xi))、D′t(xi)，并给配套视频网址。上下文里这两段没有直接说明泛化误差界和 AdaBoost 的关联。,0.85,0.0,0.0,0.0,0.3760250669220403
+在类别不屏衡时，为啥精渡不能当作学习器性能度量，而要采用查准率、查全率和F1？另外，若从泛化误差界角度估计学习器期望误差的上界，书里如何用Rademacher复杂度得到 E_Z[Φ(Z)] ≤ 2R_m(F)？,"['对于类别平衡问题，“西瓜书”2.3.1节中的“精度”通常无法满足该特殊任务的需求，例如“西瓜书”\n在本节第一段的举例：有998个反例和2个正例，若机器学习算法返回一个永远将新样本预测为反例的\n学习器则能达到99.8%的精度，显然虚高，因此在类别不平衡时常采用2.3节中的查准率、查全率和F1\n来度量学习器的性能。\n参考文献\n[1]王燕军.最优化基础理论与方法.复旦大学出版社,2011.[2]Wikipediacontributors.Matrixcalculus,2022.[3]张贤达.矩阵分析与应用.第2版.清华大学出版社,2013.→_→\n配套视频教程：https://www.bilibili.com/video/BV1Mh411e7VU←_←', '训练，再用测试集来评估训练得到的模型的性能。2.3\n性能度量\n本节性能度量指标较多，但是一般常用的只有错误率、精度、查准率、查全率、F1、ROC和AUC。2.3.1\n式(2.2)到式(2.7)的解释\n这几个公式简单易懂，几乎不需要额外解释，但是需要补充说明的是式(2.2)、式(2.4)和式(2.5)假\n设了数据分布为均匀分布，即每个样本出现的概率相同，而式(2.3)、式(2.6)和式(2.7)则为更一般的表\n达式。此外，在无特别说明的情况下，2.3节所有公式中的“样例集D”均默认为非训练集（测试集、验\n证集或其他未用于训练的样例集）。2.3.2\n式(2.8)和式(2.9)的解释\n查准率P：被学习器预测为正例的样例中有多大比例是真正例。\n查全率R：所有正例当中有多大比例被学习器预测为正例。2.3.3\n图2.3的解释\nP-R曲线的画法与ROC曲线的画法类似，也是通过依次改变模型阈值，然后计算出查准率和查全\n率并画出相应坐标点，具体参见“式(2.20)的推导”部分的讲解。这里需要说明的是，“西瓜书”中的图', '即bEZ(f)表示函数f作为假设下的经验误差，Φ(Z)表示泛化误差和经验误差的差的上确界。再令\nZ′为只与Z有一个示例(样本)不同的训练集，不妨设zm∈Z和z′m∈Z′为不同的示例，那么有\nΦ(Z′)−Φ(Z)=supf∈F\x10\nE[f]−bEZ′(f)\x11\n−supf∈F\x10\nE[f]−bEZ(f)\x11\n⩽supf∈F\x10\nbEZ(f)−bEZ′(f)\x11\n=supf∈FPmi=1f(zi)−Pmi=1f(z′i)m\n=supf∈Ff(zm)−f(z′m)m\n⩽1m\n第一个不等式是因为上确界的差不大于差的上确界[5]，第四行的等号由于Z′与Z只有zm不相同，\n最后一行的不等式是因为前提假设F:Z→[0,1]，即f(zm),f(z′m)∈[0,1]。同理\nΦ(Z)−Φ(Z′)=supf∈Ff(z′m)−f(zm)m\n⩽1m\n综上二式有：|Φ(Z)−Φ(Z′)|⩽1m\n将Φ看做函数f(注意这里的f不是Φ定义里的f)，那么可以套用McDiarmid不等式的结论式12.7P(Φ(Z)−EZ[Φ(Z)]⩾ϵ)⩽exp\x12−2ϵ2P\nic2i\n\x13\n令exp\x10\n−2ϵ2∑\nic2i\n\x11=δ可以求得ϵ=q']","1. **类别不平衡时精度为何不行**：  
+精度只看“预测正确的比例”。当正例极少时，学习器若永远把样本预测为多数类（反例），仍可获得很高精度。例如 998 个反例、2 个正例，全预测为反例，精度为 99.8%，但正例一个都没识别出来，显然虚高。因此类别不平衡时常改用**查准率、查全率和 F1**：查准率关注“预测为正例中有多少是真阳性”，查全率关注“真正例中有多少被找出来”，F1 则是二者的综合。
+
+2. **用 Rademacher 复杂度得到 \(E_Z[\Phi(Z)] \le 2R_m(\mathcal F)\)**：  
+提供的检索片段中没有包含 Rademacher 复杂度的推导，无法据此说明“书里”具体怎么写。常见推导思路是：  
+\[
+\Phi(Z)=\sup_{f\in\mathcal F}\left(\mathbb E[f]-\widehat E_Z[f]\right)
+\]
+利用幽灵样本 \(Z'\) 和对称化，
+\[
+\mathbb E_Z[\Phi(Z)]
+\le \mathbb E_{Z,Z',\sigma}\sup_{f\in\mathcal F}\frac1m\sum_{i=1}^m \sigma_i(f(z'_i)-f(z_i))
+\le R_m(\mathcal F)+R_m(\mathcal F)=2R_m(\mathcal F).
+\]
+其中 \(\sigma_i\) 是独立 Rademacher 随机变量。",对于类别平衡问题，西瓜书2.3.1节中的精度通常无法满足该特殊任务的需求。例如有998个反例和2个正例，若机器学习算法返回一个永远将新样本预测为反例的学习器，则能达到99.8%的精度，显然虚高，因此在类别不平衡时常采用2.3节中的查准率、查全率和F1来度量学习器的性能。另一方面，泛化误差界方面，书中由逆事件的概率定义得到 P{Φ(Z)−E_Z[Φ(Z)] ≤ √(ln(1/δ)/(2m))} ≥ 1−δ，即书中式12.44的结论。为估计E_Z[Φ(Z)]的上界，书中通过引入服从分布D的示例集Z′、利用EZ′∼D[bEZ′(f)]=E(f)且Z′与Z相互独立、对称化、Rademacher变量σ_i等步骤，得到 E_Z[Φ(Z)] ≤ 2R_m(F)。,0.5454545454545454,0.7929300258113348,0.9999999999,0.5,0.6062298431747313
+"In teh seting of 半监督聚类, how does teh explanaton of Figure 13.7 in secton 13.6.1 descrbie teh procedur for trying to assign each sampl xi to a clustr by checkng distances to mean vectors from small to large and only merging it if teh smalest one does not violate teh constrants in M and C, and how is this secton conected to teh table of contents listing 13.6 半监督聚类 with 13.6.1 图13.7的解释 and 13.6.2 图13.9的解释?","['若从小到大依次尝试各簇后均违背M和C中的约束则第16行的if条件为真,算法报错结束;依次对每\n个样本进行处理后第22行到第24行更新均值向量,重新开始新一轮迭代,直到均值向量均末更新。13.6.2\n图13.9的解释\n算法第6行到第10行即在聚类簇迭代更新过程中不改变种子样本的簇隶属关系；第11行到第15行\n即对非种子样本进行普通的k-means聚类过程；第16行到第18行更新均值向量，反复迭代，直到均值\n向量均未更新。\n参考文献\n[1]Wikipediacontributors.Laplacianmatrix,2020.[2]DengyongZhou,OlivierBousquet,ThomasLal,JasonWeston,andBernhardSchölkopf.Learningwithlocalandglobalconsistency.Advancesinneuralinformationprocessingsystems,16,2003.→_→\n配套视频教程：https://www.bilibili.com/video/BV1Mh411e7VU←_←', '......................................16313.6半监督聚类............................................16313.6.1图13.7的解释\n......................................16313.6.2图13.9的解释\n......................................163\n第14章概率图模型\n16514.1隐马尔可夫模型..........................................16514.1.1生成式模型和判别式模型\n................................16514.1.2式(14.1)的推导', '→_→\n欢迎去各大电商平台选购纸质版南瓜书《机器学习公式详解》←_←\n第9章\n聚类\n到目前为止，前面章节介绍的方法都是针对监督学习(supervisedlearning)的，本章介绍的聚类(clus-tering)和下一章介绍的降维属于无监督学习(unsupervisedlearning)。9.1\n聚类任务\n单词“cluster”既是动词也是名词，作为名词时翻译为“簇”，即聚类得到的子集；一般谈到“聚类”\n这个概念时对应其动名词形式“clustering”。9.2\n性能度量\n本节给出了聚类性能度量的三种外部指标和两种内部指标，其中式(9.5)~式(9.7)是基于式(9.1)~\n式(9.4)导出的三种外部指标，而式(9.12)和式(9.13)是基于式(9.8)~式(9.11)导出的两种内部指标。\n读本节内容需要心里清楚的一点：本节给出的指标仅是该领域的前辈们定义的指标，在个人研究过程中可\n以根据需要自己定义，说不定就会被业内同行广泛使用。9.2.1\n式(9.5)的解释\n给定两个集合A和B，则Jaccard系数定义为如下公式']","在 13.6.1“图13.7的解释”中，半监督聚类的做法是：对每个样本 \(x_i\)，计算它到各簇均值向量的距离，并按距离**从小到大依次尝试各簇**；若某个候选簇不违背 \(M\) 和 \(C\) 中的约束，就将该样本归入该簇。若从小到大把所有簇都试完后仍全部违背 \(M\)、\(C\) 约束，则第 16 行的 `if` 条件为真，算法报错结束。每处理完一个样本后，第 22–24 行更新均值向量，重新开始新一轮迭代，直到均值向量不再更新。
+
+目录上的连接是：**13.6 半监督聚类** 下分 **13.6.1 图13.7的解释** 和 **13.6.2 图13.9的解释**，均在第 163 页。13.6.1 正是对图13.7所示“按距离尝试分配并检查 \(M/C\) 约束”的过程作解释；13.6.2 则解释图13.9，即种子样本簇隶属不变、非种子样本做普通 k-means、并反复更新均值向量直到不变。",根据提供的上下文，13.6 是半监督聚类。13.6.1 是图13.7的解释，并且目录中同时列出13.6.2 图13.9的解释。图13.7的解释说明：算法第4行到第21行是依次对每个样本进行处理，其中第8行到第21行是尝试将样本xi到底应该划入哪个族；具体来说，按样本xi到各均值向量的距离从小到大依次尝试，若最小的不违背M和C中的约束，则将样本xi划入该簇并置is_merge=true，此时第8行的while循环条件为假不再继续循环。因此，在13.6半监督聚类的图13.7解释中，样本分配过程依赖于到均值向量的距离以及M和C约束，并在满足条件时通过is_merge=true完成划入。,0.6842105263157895,0.685203826159737,0.9999999999,0.5,
+作为软件开发者，我正在构建 LLM 应用并学习 Andrew Ng 和 OpenAI 的实用提示工程最佳实践。如果要为客服场景设计一个“AI助手”提示模板，让同一封客户评价在第一次运行以 temperature=0.7 生成邮件回复，并观察第二次运行输出是否变化，同时希望在需要可预测、可靠输出时把 temperature 设置为 0，那么应该如何编写以“你是一名客户服务的AI助手”开头的提示，要求根据用 ``` 分隔的客户电子邮件生成回复、感谢积极或中性评价、对消极评价道歉并建议联系客户服务、使用评论具体细节、以简明专业语气写信并以“AI客户代理”署名，并解释两次运行差异与温度设置的关系？,"['1\n图 1.7 温度系数\n一般来说，如果需要可预测、可靠的输出，则将 temperature 设置为0，在所有课程中，我们一直设置温度为零；如果需要更具创造性的多样文本，那么适当提高 temperature 则很有帮助。调整这个参数可以灵活地控制语言模型的输出特性。\n在下面例子中，针对同一段来信，我们提醒语言模型使用用户来信中的详细信息，并设置一个较高的 temperature ，运行两次，比较他们的结果有何差异。\n# 第一次运行\nprompt = f""""""\n你是一名客户服务的AI助手。\n你的任务是给一位重要的客户发送邮件回复。\n根据通过“```”分隔的客户电子邮件生成回复，以感谢客户的评价。\n如果情感是积极的或中性的，感谢他们的评价。\n如果情感是消极的，道歉并建议他们联系客户服务。\n请确保使用评论中的具体细节。\n以简明和专业的语气写信。\n以“AI客户代理”的名义签署电子邮件。\n客户评价：```{review}```\n评论情感：{sentiment}\n""""""\nresponse = get_completion(prompt, temperature=0.7)', 'prompt = f""""""\n你是一名客户服务的AI助手。\n你的任务是给一位重要的客户发送邮件回复。\n根据通过“```”分隔的客户电子邮件生成回复，以感谢客户的评价。\n如果情感是积极的或中性的，感谢他们的评价。\n如果情感是消极的，道歉并建议他们联系客户服务。\n请确保使用评论中的具体细节。\n以简明和专业的语气写信。\n以“AI客户代理”的名义签署电子邮件。\n客户评价：```{review}```\n评论情感：{sentiment}\n""""""\nresponse = get_completion(prompt, temperature=0.7)\nprint(response)\n亲爱的客户，\n非常感谢您对我们产品的评价和反馈。我们非常重视您的意见，并感谢您对我们产品的支持。\n首先，我们对价格的变动感到非常抱歉给您带来了困扰。我们会认真考虑您提到的情况，并采取适当的措施来改进我们的价格策略，以避免类似情况再次发生。\n关于产品质量的问题，我们深感抱歉。我们一直致力于提供高质量的产品，并且我们会将您提到的问题反馈给我们的研发团队，以便改进产品的设计和制造过程。', 'prompt = f""""""\n你是一位客户服务的AI助手。\n你的任务是给一位重要客户发送邮件回复。\n根据客户通过“```”分隔的评价，生成回复以感谢客户的评价。提醒模型使用评价中的具体细节\n用简明而专业的语气写信。\n作为“AI客户代理”签署电子邮件。\n客户评论：\n```{review}```\n评论情感：{sentiment}\n""""""\nresponse = get_completion(prompt)\nprint(response)\n尊敬的客户，\n非常感谢您对我们产品的评价。我们非常抱歉您在购买过程中遇到了价格上涨的问题。我们一直致力于为客户提供最优惠的价格，但由于市场波动，价格可能会有所变化。我们深表歉意，如果您需要任何帮助，请随时联系我们的客户服务团队。\n我们非常感谢您对我们产品的详细评价和使用技巧。我们将会把您的反馈传达给我们的产品团队，以便改进我们的产品质量和性能。\n再次感谢您对我们的支持和反馈。如果您需要任何帮助或有任何疑问，请随时联系我们的客户服务团队。\n祝您一切顺利！\nAI客户代理']","可以这样写：
+
+```python
+prompt = f""""""
+你是一名客户服务的AI助手。
+你的任务是给一位重要的客户发送邮件回复。
+根据通过“```”分隔的客户电子邮件生成回复，以感谢客户的评价。
+如果情感是积极的或中性的，感谢他们的评价。
+如果情感是消极的，道歉并建议他们联系客户服务。
+请确保使用评论中的具体细节。
+以简明和专业的语气写信。
+以“AI客户代理”的名义签署电子邮件。
+客户评价：```{review}```
+评论情感：{sentiment}
+""""""
+
+# 第一次运行，高温度，更有多样性
+response1 = get_completion(prompt, temperature=0.7)
+print(response1)
+
+# 第二次运行，同样温度，输出可能不同
+response2 = get_completion(prompt, temperature=0.7)
+print(response2)
+```
+
+如果希望输出可预测、可靠，则设置：
+
+```python
+response = get_completion(prompt, temperature=0)
+```
+
+解释：`temperature` 控制生成随机性。`temperature=0.7` 时模型采样更随机，同一提示运行两次，措辞、句子结构和部分细节可能不同；`temperature=0` 时更倾向选择最可能的词，输出更确定、可复现，适合客服邮件这类稳定场景。","根据提供的上下文，如果需要一个可预测、可靠的输出，应将 temperature 设置为 0；在所有课程中一直设置温度为零。如果需要更具创造性的多样文本，那么适当提高 temperature 则很有帮助。调整这个参数可以灵活地控制语言模型的输出特性。在客户服务“AI助手”的示例中，同一封来信使用提示模板：你是一名客户服务的AI助手，你的任务是给一位重要的客户发送邮件回复；根据通过 ``` 分隔的客户电子邮件生成回复，以感谢客户的评价；如果情感是积极的或中性的，感谢他们的评价；如果情感是消极的，道歉并建议他们联系客户服务；请确保使用评论中的具体细节；以简明和专业的语气写信；以“AI客户代理”的名义签署电子邮件。客户评价：```{review}```；评论情感：{sentiment}。第一次运行使用 get_completion(prompt, temperature=0.7)。因为设置了一个较高的 temperature 并运行两次以比较结果差异，而第二次运行输出结果会发生变化。第一次运行生成的“AI客户代理”回复示例感谢客户评价，对价格变动和套装在12月第二周价格上涨表示抱歉，对锁定刀片等质量下降表示遗憾并会反馈研发团队改进设计与质量控制，感谢客户分享产品使用方式和提示，并请客户联系客户服务团队。若要在所有课程中保持可预测、可靠输出，则应设置 temperature 为零。",0.696969696969697,0.6931066008204205,0.9999999999666667,0.8888888888888888,
+"Hey, I am 林启言, a languge app developer who uses LLM APIs to build multilangual transaltion and text convrsion tools, and I am trying to figuer out how the Korean translations in the first context segmnt connect with the second segmnt: specifically, the Italian mouse messsage that becomes Korean, then the same Korean line appears befor the Polish Ctrl key example, and also there is a tone-style adjustment prompt for translating slang into a business letter, so can you explan how these Korean translation examples and the tone-style prompt fit together in the provided context?","['Korean: ""내 마우스가 작동하지 않습니다.""\nOriginal message (The language is Polish.): Mój klawisz Ctrl jest zepsuty\nEnglish: ""My Ctrl key is broken""\nKorean: ""내 Ctrl 키가 고장 났어요""\nOriginal message (The language is Chinese.): 我的屏幕在闪烁\nEnglish: My screen is flickering.\nKorean: 내 화면이 깜박거립니다.\n2.1 语气风格调整\nprompt = f""""""\nTranslate the following from slang to a business letter: \n\'Dude, This is Joe, check out this spec on this standing lamp.\'\n""""""\nresponse = get_completion(prompt)\nprint(response)', '""Mój klawisz Ctrl jest zepsuty"",                             # My keyboard has a broken control key\n  ""我的屏幕在闪烁""                                             # My screen is flashing\n]\nfor issue in user_messages:\n    prompt = f""Tell me what language this is: ```{issue}```""\n    lang = get_completion(prompt)\n    print(f""Original message ({lang}): {issue}"")\n    prompt = f""""""\n    Translate the following  text to English \\\n    and Korean: ```{issue}```\n    """"""\n    response = get_completion(prompt)', 'and reduce the chances of receiving irrelevant \\ \nor incorrect responses. Don\'t confuse writing a \\ \nclear prompt with writing a short prompt. \\ \nIn many cases, longer prompts provide more clarity \\ \nand context for the model, which can lead to \\ \nmore detailed and relevant outputs.\n""""""\nprompt = f""""""\nSummarize the text delimited by triple backticks \\ \ninto a single sentence.\n```{text}```\n""""""\nresponse = get_completion(prompt)\nprint(response)']","They are **separate illustrative examples**, not one connected dependency chain.
+
+- The Korean lines are **outputs of a multilingual translation loop**:  
+  For each user message (Italian mouse, Polish Ctrl key, Chinese screen flicker), the code asks the LLM to detect the language, then translate it into English and Korean.  
+  So:
+  - Italian mouse → `내 마우스가 작동하지 않습니다.`
+  - Polish Ctrl → `내 Ctrl 키가 고장 났어요`
+  - Chinese screen → `내 화면이 깜박거립니다.`
+
+- The **tone-style prompt** (`slang → business letter`) is a separate example under “语气风格调整.” It shows another use of the same LLM/API pattern: **text style/register conversion**, not translation into Korean.
+
+- The Polish Ctrl example does **not** reuse the mouse Korean line. Its Korean translation appears after the Polish source. If the mouse Korean line appears nearby, it is likely just formatting/order confusion in the context.
+
+So they fit together only as parts of a broader prompt-engineering tutorial: one part demonstrates **language detection + multilingual translation**, another demonstrates **tone/style adjustment**, and later text shows general prompting advice like clear delimiters and summarization.","In the first context segment, the Italian original Il mio mouse non funziona is translated to English My mouse is not working and Korean 내 마우스가 작동하지 않습니다. In the second context segment, that same Korean line 내 마우스가 작동하지 않습니다 appears at the start, followed by the Polish original Mój klawisz Ctrl jest zepsuty, its English translation My Ctrl key is broken, and its Korean translation 내 Ctrl 키가 고장 났어요. The second segment also includes the Chinese original 我的屏幕在闪烁, translated to English My screen is flickering and Korean 내 화면이 깜박거립니다. It also has a tone style adjustment section with a prompt to translate from slang to a business letter: Dude, This is Joe, check out this spec on this standing lamp. The code shows response = get_completion(prompt) and print(response), but no model response text is provided. The first segment also contains French and Spanish examples: the French message about system performance being slower than usual is translated to English The performance of the system is slower than usual and Korean 시스템의 성능이 평소보다 느립니다; the Spanish original Mi monitor tiene píxeles que no se iluminan is translated to English My monitor has pixels that do not light up and Korean 내 모니터에는 밝아지지 않는 픽셀이 있습니다. Together, these show Korean translations for multiple device and performance messages, and the second segment links back to the Italian mouse Korean line while adding a Polish Ctrl key Korean translation and a tone-style adjustment prompt.",0.8636363636363636,0.7824800379059861,,0.5714285714285714,0.5433070316480313
+"In this GMM training thing, when we first use 训练集 to pick k samples for initialize the k mean vectors and set α_i equal 1/k and Σ_i as diagonal 0.1, then after we compute all m times k γ_ji by formula 9.30, how does those γ_ji connect to the update of α_i, and what final formula for α_i comes from summing γ_ji, and why is m equal to negative λ and α_i becomes 1/m sum γ_ji?","['→_→\n欢迎去各大电商平台选购纸质版南瓜书《机器学习公式详解》←_←\n此时若设α+y=(α1+y1,α2+y2,...,αk+yk)∈Rk，则根据Dirichlet分布的定义可知\nP(θ;α+y)=Γ\n\x10Pki=1(αi+yi)\x11\nQki=1Γ(αi+yi)k\nYi=1θαi+yi−1i\nXθ\nP(θ;α+y)=X\nθΓ\n\x10Pki=1(αi+yi)\x11\nQki=1Γ(αi+yi)k\nYi=1θαi+yi−1i\n1=X\nθΓ\n\x10Pki=1(αi+yi)\x11\nQki=1Γ(αi+yi)k\nYi=1θαi+yi−1i\n1=Γ\n\x10Pki=1(αi+yi)\x11\nQki=1Γ(αi+yi)X\nθ""kY\ni=1θαi+yi−1i\n#1\nPθ\nhQki=1θαi+yi−1i\ni=Γ\n\x10Pki=1(αi+yi)\x11\nQki=1Γ(αi+yi)\n将此结论代入P(D|θ)可得\nP(θ|D)=Qki=1θαi+yi−1i\nPθ\nhQki=1θαi+yi−1i\ni=\nΓ\x10Pki=1(αi+yi)\x11\nQki=1Γ(αi+yi)k\nYi=1θαi+yi−1i\n=P(θ;α+y)', 'P(D|θ)=θy11...θykk=k\nYi=1θyii\n则有后验概率\nP(θ|D)=P(D|θ)P(θ)P(D)=\nP(D|θ)P(θ)P\nθP(D|θ)P(θ)=\nQki=1θyii·P(θ)P\nθhQki=1θyii·P(θ)i\n假设此时先验概率P(θ)是参数为α=(α1,α2,...,αk)∈Rk的Dirichlet分布，则P(θ)可写为\nP(θ;α)=Γ\n\x10Pki=1αi\x11\nQki=1Γ(αi)k\nYi=1θαi−1i\n将其代入P(D|θ)可得\nP(θ|D)=Qki=1θyii·P(θ)P\nθhQki=1θyii·P(θ)i\n=Qki=1θyii·Γ\n\x10Pki=1αi\x11\nQki=1Γ(αi)Qki=1θαi−1i\nPθ\n\uf8ee\uf8f0Qki=1θyii·Γ\n\x10Pki=1αi\x11\nQki=1Γ(αi)Qki=1θαi−1i\n\uf8f9\uf8fb\n=Qki=1θyii·Γ\n\x10Pki=1αi\x11\nQki=1Γ(αi)Qki=1θαi−1i\nPθ\nhQki=1θyii·Qki=1θαi−1i\ni·\nΓ\x10Pki=1αi\x11\nQki=1Γ(αi)=\nQki=1θyii·Qki=1θαi−1i\nPθ', '为拉格朗日乘子向量，L(x,µ,λ)=f(x)+Pmi=1µigi(x)+Pnj=1λjhj(x)为拉格朗日函数，且该优化问题\n满足任何一个特定的约束限制条件，则一定存在µ∗=(µ∗1;µ∗2;...;µ∗m),λ∗=(λ∗1;λ∗2;...;λ∗n)，使得：(1)∇xL(x∗,µ∗,λ∗)=∇f(x∗)+Pmi=1µ∗i∇gi(x∗)+Pnj=1λ∗j∇hj(x∗)=0；(2)hj(x∗)=0,j=1,2,...,n；(3)gi(x∗)⩽0,i=1,2,...,m；(4)µ∗i⩾0,i=1,2,...,m；(5)µ∗igi(x∗)=0,i=1,2,...,m。\n以上5条便是Karush–Kuhn–TuckerConditions（简称KKT条件）。KKT条件是局部解的必要条件，\n也就是说只要该优化问题满足任何一个特定的约束限制条件，局部解就一定会满足以上5个条件。常用的\n约束限制条件可查阅维基百科“Karush–Kuhn–TuckerConditions”词条以及查阅参考文献[1]的第4.2.2\n节，若对KKT条件的数学证明感兴趣可查阅参考文献[1]的第4.2.1节。6.2.3']","在 GMM 的 M 步中，更新 \(\alpha_i\) 要用到 E 步算出的责任度 \(\gamma_{ji}\)（公式 9.30）：
+
+\[
+\gamma_{ji}=P(z_j=i\mid x_j)=
+\frac{\alpha_i \mathcal N(x_j\mid \mu_i,\Sigma_i)}
+{\sum_{l=1}^k \alpha_l \mathcal N(x_j\mid \mu_l,\Sigma_l)}
+\]
+
+它表示第 \(j\) 个样本属于第 \(i\) 个高斯分量的后验概率。
+
+M 步要在约束
+
+\[
+\sum_{i=1}^k \alpha_i=1
+\]
+
+下最大化对数似然。对 \(\alpha_i\) 求偏导：
+
+\[
+\frac{\partial}{\partial \alpha_i}
+\sum_{j=1}^m \ln \sum_{l=1}^k \alpha_l \mathcal N(x_j\mid \mu_l,\Sigma_l)
+=
+\sum_{j=1}^m \frac{\gamma_{ji}}{\alpha_i}
+\]
+
+这是因为
+
+\[
+\frac{\mathcal N(x_j\mid \mu_i,\Sigma_i)}
+{\sum_l \alpha_l \mathcal N(x_j\mid \mu_l,\Sigma_l)}
+=
+\frac{\gamma_{ji}}{\alpha_i}
+\]
+
+构造拉格朗日函数：
+
+\[
+L=\text{LL}+\lambda\left(\sum_i \alpha_i-1\right)
+\]
+
+令对 \(\alpha_i\) 的偏导为 0：
+
+\[
+\frac{\sum_{j=1}^m \gamma_{ji}}{\alpha_i}+\lambda=0
+\]
+
+所以
+
+\[
+\sum_{j=1}^m \gamma_{ji}=-\lambda \alpha_i
+\]
+
+对所有 \(i\) 求和。左边：
+
+\[
+\sum_i \sum_j \gamma_{ji}
+=
+\sum_j \sum_i \gamma_{ji}
+=
+\sum_j 1
+=
+m
+\]
+
+右边：
+
+\[
+-\lambda \sum_i \alpha_i=-\lambda
+\]
+
+因此
+
+\[
+m=-\lambda
+\]
+
+即拉格朗日乘子 \(\lambda=-m\)。代回：
+
+\[
+\sum_{j=1}^m \gamma_{ji}=m\alpha_i
+\]
+
+所以最终
+
+\[
+\boxed{\alpha_i=\frac{1}{m}\sum_{j=1}^m \gamma_{ji}}
+\]
+
+直观上就是：第 \(i\) 个高斯分量的混合系数 \(\alpha_i\)，等于所有样本对它的责任度 \(\gamma_{ji}\) 的平均值。","According to the context, the initialization uses 训练集: it sets mixing coefficients α_i=1/k, selects k samples from the 训练集 to initialize k mean vectors μ_i (1≤i≤k), and initializes k covariance matrices Σ_i with a diagonal matrix whose diagonal elements are 0.1. Then rows 3 to 5 compute m×k γ_ji according to formula (9.30). Rows 6 to 10 use formulas (9.34), (9.35), and (9.38) to update the mean vectors, covariance matrices, and mixing coefficients with those γ_ji. The derivation says that because α_i p(x_j|μ_i,Σ_i) divided by sum_l α_l p(x_j|μ_l,Σ_l) sums to 1 over i, and sum_i α_i=1, therefore m=−λ. Hence sum over j from 1 to m of α_i p(x_j|μ_i,Σ_i) divided by sum_l α_l p(x_j|μ_l,Σ_l) equals −λ α_i = m α_i. So α_i = (1/m) sum over j from 1 to m of α_i p(x_j|μ_i,Σ_i) divided by sum_l α_l p(x_j|μ_l,Σ_l). Also from formula (9.30), that ratio equals γ_ji, so α_i can be further simplified to α_i = (1/m) sum over j from 1 to m of γ_ji. This is formula (9.38).",0.0,0.5161881052570093,0.0,0.0,
+交叉验证法 验证集 算法参数调优 如何配合,"['为测试集，也即为交叉验证法。2.2.1\n算法参数（超参数）与模型参数\n算法参数是指算法本身的一些参数（也称超参数），例如k近邻的近邻个数k、支持向量机的参数C（详见“西瓜书”第6章式(6.29)）。算法配置好相应参数后进行训练，训练结束会得到一个模型，例如支\n持向量机最终会得到w和b的具体数值（此处不考虑核函数），这就是模型参数，模型配置好相应模型参\n数后即可对新样本做预测。2.2.2\n验证集\n带有参数的算法一般需要从候选参数配置方案中选择相对于当前数据集的最优参数配置方案，例如支\n持向量机的参数C，一般采用的是前面讲到的交叉验证法，但是交叉验证法操作起来较为复杂，实际中更\n多采用的是：先用留出法将数据集划分出训练集和测试集，然后再对训练集采用留出法划分出训练集和新\n的测试集，称新的测试集为验证集，接着基于验证集的测试结果来调参选出最优参数配置方案，最后将验\n证集合并进训练集（训练集数据量够的话也可不合并），用选出的最优参数配置在合并后的训练集上重新\n训练，再用测试集来评估训练得到的模型的性能。2.3\n性能度量', '训练样本（黑点）来说，用类似于抛物线的曲线A去拟合则较为合理，而比较崎岖的曲线B相对于训练\n样本来说学习能力过于强大，但若仅用一条直线去训练则相对于训练样本来说直线的学习能力过于低下。2.2\n评估方法\n本节介绍了3种模型评估方法：留出法、交叉验证法、自助法。留出法由于操作简单，因此最常用；\n交叉验证法常用于对比同一算法的不同参数配置之间的效果，以及对比不同算法之间的效果；自助法常用\n于集成学习（详见“西瓜书”第8章的8.2节和8.3节）产生基分类器。留出法和自助法简单易懂，在此\n不再赘述，下面举例说明交叉验证法的常用方式。\n对比同一算法的不同参数配置之间的效果：假设现有数据集D，且有一个被评估认为适合用于数据集\nD的算法L，该算法有可配置的参数，假设备选的参数配置方案有两套：方案a，方案b。下面通过交叉\n验证法为算法L筛选出在数据集D上效果最好的参数配置方案。以3折交叉验证为例，首先按照“西瓜\n书”中所说的方法，通过分层采样将数据集D划分为3个大小相似的互斥子集：D1,D2,D3，然后分别用\n其中1个子集作为测试集，其他子集作为训练集，这样就可获得3组训练集和测试集：']","交叉验证法、验证集和参数调优可以这样配合：
+
+1. **交叉验证法用于选参数**：对每一套候选算法参数配置，在训练集上做 K 折交叉验证，轮流把其中一份当验证集、其余当训练集，得到 K 次评估结果，比较哪套参数配置平均效果最好。
+2. **验证集用于调参**：实际中更常用简化流程：先用留出法分出训练集和测试集；再从训练集里留出一部分作验证集。用验证集测试不同参数配置，选出最优参数配置。
+3. **选完参数后重训**：用选出的最优参数，在合并后的训练集上重新训练模型。若训练数据够，也可不合并验证集。
+4. **测试集只做最终评估**：最后用独立的测试集评估最终模型性能。
+
+简单说：**交叉验证/验证集负责“选超参数”，训练集负责“训练模型参数”，测试集负责“最终评估”。** 交叉验证法常用于对比同一算法不同参数配置的效果。","交叉验证法常用于对比同一算法的不同参数配置之间的效果，以及对比不同算法之间的效果。以3折交叉验证为例，先将数据集D通过分层采样划分为3个大小相似的互斥子集D1,D2,D3，再分别用其中1个子集作为测试集，其他子集作为训练集，从而获得3组训练集和测试集。实际调参时，由于交叉验证法操作较复杂，更多采用先用留出法划分训练集和测试集，再对训练集用留出法划分出训练集和验证集，基于验证集测试结果调参选出最优参数配置方案，最后将验证集合并进训练集，用最优参数配置在合并后的训练集上重新训练，再用测试集评估模型性能。",0.7272727272727273,0.9283515644060809,0.99999999995,1.0,0.8855502807574438
+在决策树的划分选择中，信息增益为什么可以用来衡量样本集不确定性的减小程度，并且它与ID3算法之间存在怎样的对应关系？,"['能会有样本落入该分支。此即为递归返回的情形(3)。4.2\n划分选择\n本节介绍的三种划分选择方法，即信息增益、增益率、基尼指数分别对应著名的ID3、C4.5和CART\n三种决策树算法。4.2.1\n式(4.1)的解释\n该式为信息论中的信息熵定义式，以下先证明0⩽Ent(D)⩽log2|Y|，然后解释其最大值和最小值所\n表示的含义。→_→\n配套视频教程：https://www.bilibili.com/video/BV1Mh411e7VU←_←', 'I(Y;X)=Ent(Y)−Ent(Y|X)\n此即互信息的数学定义。\n所以式(4.2)可以理解为，在已知属性a的取值后，样本类别这个随机变量的不确定性减小的程度。\n若根据某个属性计算得到的信息增益越大，则说明在知道其取值后样本集的不确定性减小的程度越大，即\n“西瓜书”上所说的“纯度提升”越大。4.2.3\n式(4.4)的解释\n为了理解该式的“固有值”的概念，可以将式(4.4)与式(4.1)对比理解。式(4.1)可重写为\nEnt(D)=−|Y|X\nk=1pklog2pk=−|Y|X\nk=1\x0c\x0cDk\x0c\x0c|D|log2\x0c\x0cDk\x0c\x0c|D|\n其中|Dk||D|=pk，为第k类样本所占的比例。与式(4.4)的表达式作一下对比\nIV(a)=−V\nXv=1|Dv||D|log2|Dv||D|\n其中|Dv||D|=pv，为属性a取值为av的样本所占的比例。即式(4.1)是按样本的类别标记计算的信息熵，\n而式(4.4)是按样本属性的取值计算的信息熵。4.2.4\n式(4.5)的推导\n假设数据集D中的样例标记种类共有三类，每类样本所占比例分别为p1、p2、p3。现从数据集中随', '→_→\n欢迎去各大电商平台选购纸质版南瓜书《机器学习公式详解》←_←4.2.2\n式(4.2)的解释\n此为信息增益的定义式。在信息论中信息增益也称为“互信息”，表示已知一个随机变量的信息后另\n一个随机变量的不确定性减少的程度。\n下面给出互信息的定义，在此之前，还需要先解释一下什么是“条件熵”。条件熵表示的是在已知一\n个随机变量的条件下，另一个随机变量的不确定性。具体地，假设有随机变量X和Y，且它们服从以下\n联合概率分布\nP(X=xi,Y=yj)=pij,i=1,2,···,n,j=1,2,···,m\n那么在已知X的条件下，随机变量Y的条件熵为\nEnt(Y|X)=n\nXi=1piEnt(Y|X=xi)\n其中，pi=P(X=xi)\uffffi=1,2,···,n。互信息定义为信息熵和条件熵的差，它表示的是已知一个随机变量\n的信息后使得另一个随机变量的不确定性减少的程度。具体地，假设有随机变量X和Y，那么在已知X\n的信息后，Y的不确定性减少的程度为\nI(Y;X)=Ent(Y)−Ent(Y|X)\n此即互信息的数学定义。']","信息增益可以衡量样本集不确定性减小程度，是因为它本质上是信息论中的**互信息**：
+
+\[
+I(Y;X)=\text{Ent}(Y)-\text{Ent}(Y|X)
+\]
+
+其中：
+
+- \(\text{Ent}(Y)\)：样本类别 \(Y\) 原本的信息熵，即不确定性；
+- \(\text{Ent}(Y|X)\)：已知属性 \(X\) 取值后，类别 \(Y\) 的条件熵，即剩余不确定性；
+- 二者之差就是“知道属性取值后，类别不确定性减少的程度”。
+
+因此，在决策树划分选择中，按某属性 \(a\) 计算得到的信息增益越大，说明知道该属性取值后，样本集类别的不确定性下降越多，也就是“纯度提升”越大。
+
+对应关系是：**信息增益是 ID3 决策树算法采用的划分选择准则**。  
+即三种划分选择方法与三种经典决策树算法对应为：
+
+- 信息增益 → ID3；
+- 增益率 → C4.5；
+- 基尼指数 → CART。",根据 <1-hop>，信息增益可写成 I(Y;X)=Ent(Y)−Ent(Y|X)，即在已知属性 a 的取值后，样本类别这个随机变量的不确定性减小的程度；若某属性计算得到的信息增益越大，则说明在知道其取值后样本集的不确定性减小程度越大，也就是“纯度提升”越大。根据 <2-hop>，在决策树划分选择中，信息增益、增益率、基尼指数分别对应著名的 ID3、C4.5 和 CART 三种决策树算法。因此，信息增益在划分选择中与 ID3 算法相对应，其作用正是通过选择使不确定性减小、纯度提升更大的属性来进行划分。,,,0.9999999999666667,1.0,0.8482064097519393
+请问在交叉验正里面，如果要用算法L搭配方案a和方案b在数据集D上比较参数配置，并且还想把算法α和算法β也拿来对比，那么根据训练集1/测试集1一直到训练集3/测试集3的流程，具体应该怎么得到Scorea和Scoreb，再通过比较它们之间的优劣来判断算法L在数据集D上效果最好的参数配置方案？另外，为虾米交叉验证法要反复划分、每次都换不同子集做测试集，而不是只靠一次留出法呢？,"['→_→\n欢迎去各大电商平台选购纸质版南瓜书《机器学习公式详解》←_←2和测试结果3，最后将3次测试结果求平均即可得到算法L搭配方案a在数据集D上的最终效果，记\n为Scorea。同理，按照以上方法也可得到算法L搭配方案b在数据集D上的最终效果Scoreb，最后通\n过比较Scorea和Scoreb之间的优劣来确定算法L在数据集D上效果最好的参数配置方案。\n对比不同算法之间的效果：同上述“对比同一算法的不同参数配置之间的效果”中所讲的方法一样，\n只需将其中的“算法L搭配方案a”和“算法L搭配方案b”分别换成需要对比的算法α和算法β即可。\n从以上的举例可以看出，交叉验证法本质上是在进行多次留出法，且每次都换不同的子集做测试集，\n最终让所有样本均至少做1次测试样本。这样做的理由其实很简单，因为一般的留出法只会划分出1组\n训练集和测试集，仅依靠1组训练集和测试集去对比不同算法之间的效果显然不够置信，偶然性太强，因\n此要想基于固定的数据集产生多组不同的训练集和测试集，则只有进行多次划分，每次采用不同的子集作\n为测试集，也即为交叉验证法。2.2.1\n算法参数（超参数）与模型参数', '训练样本（黑点）来说，用类似于抛物线的曲线A去拟合则较为合理，而比较崎岖的曲线B相对于训练\n样本来说学习能力过于强大，但若仅用一条直线去训练则相对于训练样本来说直线的学习能力过于低下。2.2\n评估方法\n本节介绍了3种模型评估方法：留出法、交叉验证法、自助法。留出法由于操作简单，因此最常用；\n交叉验证法常用于对比同一算法的不同参数配置之间的效果，以及对比不同算法之间的效果；自助法常用\n于集成学习（详见“西瓜书”第8章的8.2节和8.3节）产生基分类器。留出法和自助法简单易懂，在此\n不再赘述，下面举例说明交叉验证法的常用方式。\n对比同一算法的不同参数配置之间的效果：假设现有数据集D，且有一个被评估认为适合用于数据集\nD的算法L，该算法有可配置的参数，假设备选的参数配置方案有两套：方案a，方案b。下面通过交叉\n验证法为算法L筛选出在数据集D上效果最好的参数配置方案。以3折交叉验证为例，首先按照“西瓜\n书”中所说的方法，通过分层采样将数据集D划分为3个大小相似的互斥子集：D1,D2,D3，然后分别用\n其中1个子集作为测试集，其他子集作为训练集，这样就可获得3组训练集和测试集：', '为测试集，也即为交叉验证法。2.2.1\n算法参数（超参数）与模型参数\n算法参数是指算法本身的一些参数（也称超参数），例如k近邻的近邻个数k、支持向量机的参数C（详见“西瓜书”第6章式(6.29)）。算法配置好相应参数后进行训练，训练结束会得到一个模型，例如支\n持向量机最终会得到w和b的具体数值（此处不考虑核函数），这就是模型参数，模型配置好相应模型参\n数后即可对新样本做预测。2.2.2\n验证集\n带有参数的算法一般需要从候选参数配置方案中选择相对于当前数据集的最优参数配置方案，例如支\n持向量机的参数C，一般采用的是前面讲到的交叉验证法，但是交叉验证法操作起来较为复杂，实际中更\n多采用的是：先用留出法将数据集划分出训练集和测试集，然后再对训练集采用留出法划分出训练集和新\n的测试集，称新的测试集为验证集，接着基于验证集的测试结果来调参选出最优参数配置方案，最后将验\n证集合并进训练集（训练集数据量够的话也可不合并），用选出的最优参数配置在合并后的训练集上重新\n训练，再用测试集来评估训练得到的模型的性能。2.3\n性能度量']","以3折交叉验证为例，先把数据集 \(D\) 分层采样划分为 \(D_1,D_2,D_3\)，得到3组训练/测试集：
+
+- 训练集1/测试集1：用 \(D_2\cup D_3\) 训练，用 \(D_1\) 测试；
+- 训练集2/测试集2：用 \(D_1\cup D_3\) 训练，用 \(D_2\) 测试；
+- 训练集3/测试集3：用 \(D_1\cup D_2\) 训练，用 \(D_3\) 测试。
+
+对“算法L + 方案a”：分别在训练集1、2、3上训练，并在对应测试集1、2、3上测试，得到3次测试结果，求平均，记为 \(Score_a\)。  
+对“算法L + 方案b”：同样得到3次测试结果，求平均，记为 \(Score_b\)。  
+然后比较 \(Score_a\) 和 \(Score_b\)，更优者对应的方案就是算法L在数据集D上效果最好的参数配置方案。
+
+如果要同时对比算法 \(\alpha\) 和 \(\beta\)，方法一样：把“算法L搭配方案a”“算法L搭配方案b”分别换成算法 \(\alpha\)、算法 \(\beta\)，在同一套训练集/测试集流程上各自跑3次并求平均，再比较。
+
+之所以交叉验证要反复划分、每次换不同子集做测试集，而不是只靠一次留出法，是因为一次留出法只有一组训练集和测试集，偶然性太强，结果不够置信；交叉验证通过多次划分让所有样本至少做1次测试样本，能基于固定数据集产生多组不同的训练集和测试集，评估更稳定可靠。",根据给定内容，先把数据集D划分为若干子集，其中1个子集作为测试集，其他子集作为训练集，从而得到3组训练集和测试集：训练集1为D1∪D2、测试集1为D3；训练集2为D1∪D3、测试集2为D2；训练集3为D2∪D3、测试集3为D1。然后用算法L搭配方案a在训练集1上训练，训练结束后在测试集1上测试得到测试结果1；再分别通过训练集2和测试集2、训练集3和测试集3得到测试结果2和测试结果3。最后将这3次测试结果求平均，即可得到算法L搭配方案a在数据集D上的最终效果，记为Scorea。同理，按照以上方法也可得到算法L搭配方案b在数据集D上的最终效果Scoreb。最后通过比较Scorea和Scoreb之间的优劣来确定算法L在数据集D上效果最好的参数配置方案。若要对比不同算法之间的效果，方法与对比同一算法的不同参数配置相同，只需将算法L搭配方案a和算法L搭配方案b分别换成需要对比的算法α和算法β即可。交叉验证法本质上是在进行多次留出法，且每次都换不同的子集做测试集，最终让所有样本均至少做1次测试样本。这样做是因为一般留出法只会划分出1组训练集和测试集，仅依靠1组训练集和测试集去对比不同算法之间的效果显然不够置信，偶然性太强；要想基于固定数据集产生多组不同训练集和测试集，只有进行多次划分，每次采用不同子集作为测试集，也就是交叉验证法。,1.0,,0.99999999995,1.0,0.8761757420266878
